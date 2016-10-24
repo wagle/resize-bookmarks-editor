@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:em="http://www.mozilla.org/2004/em-rdf#">
   <Description about="urn:mozilla:install-manifest">
-    <em:id>edit-bookmark-plus@kashiif-gmail.com</em:id>
+    <em:id>resize-bookmarks-editor@wagle.io</em:id>
     <em:type>2</em:type>
-    <em:name>Edit Bookmark Plus</em:name>
+    <em:name>Resize Bookmarks Editor</em:name>
     <em:version>__version__</em:version>
-    <em:creator>Kashif Iqbal Khan</em:creator>
+    <em:creator>Perry Wagle</em:creator>
+    <em:developer>Kashif Iqbal Khan</em:creator>
+    <em:developer>Perry Wagle</em:creator>
 
     <em:translator>Wang.H.K (Chinese Simplified)</em:translator>
     <em:translator>Goofy (French)</em:translator>
@@ -13,9 +15,9 @@
 
     <em:homepageURL></em:homepageURL>
     <em:description></em:description>
-    <em:optionsURL>chrome://edit-bookmark-plus/content/options.xul</em:optionsURL>
-    <em:iconURL>chrome://edit-bookmark-plus/skin/ebmp-icon.png</em:iconURL>
-    <em:icon64URL>chrome://edit-bookmark-plus/skin/ebmp-icon64.png</em:icon64URL>
+    <em:optionsURL>chrome://resize-bookmarks-editor/content/options.xul</em:optionsURL>
+    <em:iconURL>chrome://resize-bookmarks-editor/skin/ebmp-icon.png</em:iconURL>
+    <em:icon64URL>chrome://resize-bookmarks-editor/skin/ebmp-icon64.png</em:icon64URL>
 	
     <em:targetApplication>
       <Description>

@@ -1,7 +1,8 @@
-# Edit Bookmark Plus
+# Resize-Bookmark-Editor
 
-Edit Bookmark Plus is an extension for Firefox. To know more, see [extension's page on addons.mozilla.org](https://addons.mozilla.org/firefox/addon/edit-bookmark-plus/).
+Resize-Bookmark-Editor is an extension for Firefox that is a stripped down version of my version of edit-bookmark-plus that *only* resizes the bookmark editor window.
 
+Its currently a work in progress!
 
 ## Build xpi
 

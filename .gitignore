@@ -1,4 +1,4 @@
-edit-bookmark-plus.sublime-*
+resize-bookmarks-editor.sublime-*
 node_modules
 dist/
-src/edit-bookmark-plus@kashiif-gmail.com
+.idea/

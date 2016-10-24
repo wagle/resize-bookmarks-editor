@@ -1,10 +1,10 @@
 'use strict';
-var editBookmarkPlusSidebar = {
+var resizeBookmarksEditorSidebar = {
 	onload: function(evt) {
 
 		var placesContext = document.getElementById('placesContext');
 		if (placesContext) {
-			placesContext.addEventListener('popupshowing', editBookmarkPlusSidebar.handleContextMenuShowing, false);
+			placesContext.addEventListener('popupshowing', resizeBookmarksEditorSidebar.handleContextMenuShowing, false);
 		}
 
 	},
@@ -17,32 +17,32 @@ var editBookmarkPlusSidebar = {
 			},
 			menuTitle: {
 				id:'ebmp-sidebar-placesContext-updatetitle-menuitem',
-				command: 'window.top.window.editBookmarkPlus.updateFromSidebar(event, \'title\');',
+				command: 'window.top.window.resizeBookmarksEditor.updateFromSidebar(event, \'title\');',
 				prefkey: 'updateTitleOnSidebar',
 			},
 			menuUrl: {
 				id: 'ebmp-sidebar-placesContext-updateurl-menuitem',
-				command: 'window.top.window.editBookmarkPlus.updateFromSidebar(event, \'url\');',
+				command: 'window.top.window.resizeBookmarksEditor.updateFromSidebar(event, \'url\');',
 				prefkey: 'updateUrlOnSidebar',				
 			}
 		};
 		
-		return window.top.window.editBookmarkPlus.handleContextMenuShowingCore(evt, context);
+		return window.top.window.resizeBookmarksEditor.handleContextMenuShowingCore(evt, context);
 	},
 
 	onunload: function(evt) {
 		var placesContext = document.getElementById('placesContext');
 		if (placesContext)
-			placesContext.removeEventListener('popupshowing', editBookmarkPlusSidebar.handleContextMenuShowing, false);
-		window.removeEventListener('load',   editBookmarkPlusSidebar.onload, false);
-		window.removeEventListener('unload', editBookmarkPlusSidebar.onunload, false);
+			placesContext.removeEventListener('popupshowing', resizeBookmarksEditorSidebar.handleContextMenuShowing, false);
+		window.removeEventListener('load',   resizeBookmarksEditorSidebar.onload, false);
+		window.removeEventListener('unload', resizeBookmarksEditorSidebar.onunload, false);
 	},
 
 	delayLoadEvent: function() {
-		window.removeEventListener('DOMContentLoaded', editBookmarkPlusSidebar.delayLoadEvent, false);
-		window.addEventListener('load',   editBookmarkPlusSidebar.onload, false);
-		window.addEventListener('unload', editBookmarkPlusSidebar.onunload, false);
+		window.removeEventListener('DOMContentLoaded', resizeBookmarksEditorSidebar.delayLoadEvent, false);
+		window.addEventListener('load',   resizeBookmarksEditorSidebar.onload, false);
+		window.addEventListener('unload', resizeBookmarksEditorSidebar.onunload, false);
 	}
 }
 
-window.addEventListener('DOMContentLoaded', editBookmarkPlusSidebar.delayLoadEvent, false);
+window.addEventListener('DOMContentLoaded', resizeBookmarksEditorSidebar.delayLoadEvent, false);

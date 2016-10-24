@@ -1,6 +1,6 @@
 content resize-bookmarks-editor chrome/content/
 
-skin	resize-bookmarks-editor	edit-bookmark-plus-skin	chrome/skin/
+skin	resize-bookmarks-editor	resize-bookmarks-editor-skin	chrome/skin/
 
 locale	resize-bookmarks-editor	en-US	chrome/locale/en-US/
 locale	resize-bookmarks-editor	zh-CN	chrome/locale/en-US/

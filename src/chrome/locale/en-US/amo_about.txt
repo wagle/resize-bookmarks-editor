@@ -49,7 +49,7 @@ Tiếng Việt · vi
 
 <li><b>Option to Show/Hide Extra Fields</b>: You can customize whether to show description, location and keywords fields on popup or not.
 
-<li><b>Update Name and/or url of a bookmark easily</b>: Adds 'Update Url' and 'Update Name' menu items in the context menu of bookmarks toolbar, bookmarks menu, bookmarks sidebar. Both of the menu items can be turned off by Edit Bookmark Plus options dialog.
+<li><b>Update Name and/or url of a bookmark easily</b>: Adds 'Update Url' and 'Update Name' menu items in the context menu of bookmarks toolbar, bookmarks menu, bookmarks sidebar. Both of the menu items can be turned off by Resize Bookmarks Editor options dialog.
 
 <b>Update Url</b>: Updates the url of selected bookmark with the url of current page.
 

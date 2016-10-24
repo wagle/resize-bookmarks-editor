@@ -1,23 +1,23 @@
 'use strict';
-var editBookmarkPlus = {
+var resizeBookmarksEditor = {
 	prefService: null,
 	stringBundle: null,  
 	isShownFirstTime: true,
 
 	handleWindowLoad: function(evt) {
-		window.removeEventListener('load', editBookmarkPlus.handleWindowLoad, false);
-		window.setTimeout(function() { editBookmarkPlus.init(); }, 500); 
+		window.removeEventListener('load', resizeBookmarksEditor.handleWindowLoad, false);
+		window.setTimeout(function() { resizeBookmarksEditor.init(); }, 500);
 	},
 
 	init: function() {
 		// initialize prefService reference
 		this.prefService = Components.classes['@mozilla.org/preferences-service;1']
 							.getService(Components.interfaces.nsIPrefService)
-							.getBranch('extensions.editbookmarkplus.');
+							.getBranch('extensions.resizebookmarkseditor.');
 
 		this.stringBundle =	Components.classes['@mozilla.org/intl/stringbundle;1']  
 						        .getService(Components.interfaces.nsIStringBundleService)  
-						        .createBundle('chrome://edit-bookmark-plus/locale/editbookmarkplus.properties');
+						        .createBundle('chrome://resize-bookmarks-editor/locale/resizebookmarkseditor.properties');
 
         this._handleStartup();
 		
@@ -44,11 +44,11 @@ var editBookmarkPlus = {
 
 					if (hiddenRows) {
 						var fieldsToShow = [];
-						if (editBookmarkPlus.prefService.getBoolPref('showLocation'))
+						if (resizeBookmarksEditor.prefService.getBoolPref('showLocation'))
 							fieldsToShow.push('location');
-						if (editBookmarkPlus.prefService.getBoolPref('showDescription'))
+						if (resizeBookmarksEditor.prefService.getBoolPref('showDescription'))
 							fieldsToShow.push('description');
-						if (editBookmarkPlus.prefService.getBoolPref('showKeyword'))
+						if (resizeBookmarksEditor.prefService.getBoolPref('showKeyword'))
 							fieldsToShow.push('keyword');
 
 						for each(var field in fieldsToShow) {
@@ -64,7 +64,7 @@ var editBookmarkPlus = {
 
 			p.addEventListener('load', this.handlePopupLoad, false);
 			p.addEventListener('popupshown', this.handlePopupShown, false);
-			p.addEventListener('popupshowing', editBookmarkPlus.handlePopupShowing, false);
+			p.addEventListener('popupshowing', resizeBookmarksEditor.handlePopupShowing, false);
 			p.addEventListener('popuphidden', this.handlePopupHidden, false);
 			
 			
@@ -99,7 +99,7 @@ var editBookmarkPlus = {
 		if (oldVersion != currVersion) {
 			this.prefService.setCharPref('version', currVersion);
 			try {
-				setTimeout(editBookmarkPlus._welcome,100,currVersion);
+				setTimeout(resizeBookmarksEditor._welcome,100,currVersion);
 			}
 			catch(e) {}
 		}
@@ -108,7 +108,7 @@ var editBookmarkPlus = {
 	_welcome: function(version) {
 	/*
 			try {
-			var url = 'http://www.kashiif.com/firefox-extensions/edit-bookmark-plus/edit-bookmark-plus-welcome/?v='+version;
+			var url = 'http://www.kashiif.com/firefox-extensions/resize-bookmarks-editor/resize-bookmarks-editor-welcome/?v='+version;
 			openUILinkIn( url, 'tab');
 		} 
 		catch(e) {}
@@ -128,12 +128,12 @@ var editBookmarkPlus = {
                 tagsSelectorRow.align='';
 
 		var btnExpandFolder = document.getElementById('editBMPanel_foldersExpander');
-		btnExpandFolder.addEventListener('command', editBookmarkPlus.handleExpandFolderButtonClick, false);
+		btnExpandFolder.addEventListener('command', resizeBookmarksEditor.handleExpandFolderButtonClick, false);
 		
 		var folderMenuList = document.getElementById('editBMPanel_folderMenuList');
-		folderMenuList.addEventListener('command', editBookmarkPlus.handleTreeSelectionChanged, false);
+		folderMenuList.addEventListener('command', resizeBookmarksEditor.handleTreeSelectionChanged, false);
 
-		var p = document.getElementById('hboxEditBookmarkPlus');
+		var p = document.getElementById('hboxResizeBookmarksEditor');
 		if (p) {
 			// Skip for bm-props2.xul
 			var parent = p.parentNode;
@@ -142,17 +142,17 @@ var editBookmarkPlus = {
 			parent.insertBefore(p, parent.children.item(0));
 			
 			p =  document.getElementById('editBookmarkPanel');
-			p.removeEventListener('load', editBookmarkPlus.handlePopupLoad, false);
-			editBookmarkPlus.__setNoAutoHide(p);
+			p.removeEventListener('load', resizeBookmarksEditor.handlePopupLoad, false);
+			resizeBookmarksEditor.__setNoAutoHide(p);
 
-			var resizer = document.getElementById('resizerEditBookmarkPlus');
-			resizer.addEventListener('command', editBookmarkPlus.handleResizerCommand, false);
+			var resizer = document.getElementById('resizerResizeBookmarksEditor');
+			resizer.addEventListener('command', resizeBookmarksEditor.handleResizerCommand, false);
 		}
 		
 	},
 
 	__setNoAutoHide: function(targetPanel) {
-		var noautohide = editBookmarkPlus.prefService.getBoolPref('noAutoHidePanel');
+		var noautohide = resizeBookmarksEditor.prefService.getBoolPref('noAutoHidePanel');
 		if (noautohide) {
 			targetPanel.setAttribute('noautohide', true);
 		}
@@ -166,24 +166,24 @@ var editBookmarkPlus = {
 
 		var panel = evt.target;
 
-		//panel.removeEventListener('popupshowing', editBookmarkPlus.handlePopupShowing);
-		editBookmarkPlus.__setNoAutoHide(panel);
+		//panel.removeEventListener('popupshowing', resizeBookmarksEditor.handlePopupShowing);
+		resizeBookmarksEditor.__setNoAutoHide(panel);
 	},
 
 	
 	handlePopupShown: function(evt) {
 		// Do not handle drop-down popup events
 		if (evt.target.id != 'editBookmarkPanel') return;
-		//editBookmarkPlus.__setNoAutoHide(evt.target);
+		//resizeBookmarksEditor.__setNoAutoHide(evt.target);
 
 		window.setTimeout(function() {
-			editBookmarkPlus._processShown(evt);
-		}, editBookmarkPlus.prefService.getIntPref('popupshowndelay'));
+			resizeBookmarksEditor._processShown(evt);
+		}, resizeBookmarksEditor.prefService.getIntPref('popupshowndelay'));
 	},
 	
 	handlePopupHidden: function(evt) {
 		var target = document.getElementById('editBookmarkPanelContent'),
-				prefService = editBookmarkPlus.prefService,
+				prefService = resizeBookmarksEditor.prefService,
 				prefAutoExpandTree = prefService.getBoolPref('autoExpandTree');	
 
 		prefService.setIntPref('popupWidth', target.width);
@@ -198,7 +198,7 @@ var editBookmarkPlus = {
 
 		var folderTreeRow = document.getElementById('editBMPanel_folderTreeRow'),
 				btnExpandFolder, txtBookmarkName,
-				prefService = editBookmarkPlus.prefService,
+				prefService = resizeBookmarksEditor.prefService,
 				prefAutoExpandTree = prefService.getBoolPref('autoExpandTree');	
 
 		folderTreeRow.flex=10;
@@ -245,14 +245,14 @@ var editBookmarkPlus = {
 			// if width,height persisted, popup shows up in that size even after uninstalling addon
 			// without the tree being expanded
 			// p.persist='width height';
-			var t = editBookmarkPlus.prefService.getIntPref('popupWidth');
+			var t = resizeBookmarksEditor.prefService.getIntPref('popupWidth');
 			if (t>0) {
 				p.width = t;
 			}
 
 			if (autoExpandTree) {
 				// Only restore height if the tree is auto expanded
-				t = editBookmarkPlus.prefService.getIntPref('popupHeight');
+				t = resizeBookmarksEditor.prefService.getIntPref('popupHeight');
 				if (t>0) {
 					p.height = t;
 				}
@@ -319,16 +319,16 @@ var editBookmarkPlus = {
 			}
 		}
 
-		editBookmarkPlus._ensureSelectionVisible();
+		resizeBookmarksEditor._ensureSelectionVisible();
 	},
 	
 	handleTreeSelectionChanged: function(evt) {
-		editBookmarkPlus._ensureSelectionVisible();
+		resizeBookmarksEditor._ensureSelectionVisible();
 	},
 	
 	handleResizerCommand: function(evt) {
-		if (evt.target.id == 'resizerEditBookmarkPlus') {
-			editBookmarkPlus._ensureSelectionVisible();
+		if (evt.target.id == 'resizerResizeBookmarksEditor') {
+			resizeBookmarksEditor._ensureSelectionVisible();
 		}
 	},
 
@@ -362,10 +362,10 @@ var editBookmarkPlus = {
 		if (placesNode && PlacesUtils.nodeIsBookmark(placesNode)) {
 			switch(option) {
 				case 'title':
-					editBookmarkPlus._updateTitleCore(placesNode);
+					resizeBookmarksEditor._updateTitleCore(placesNode);
 					break;
 				case 'url':
-					editBookmarkPlus._updateUrlCore(placesNode);
+					resizeBookmarksEditor._updateUrlCore(placesNode);
 					break;
 			}
 		}
@@ -377,13 +377,13 @@ var editBookmarkPlus = {
 		var v = thePopupNode.parentNode.view;
 		if (v) {
 			var _node = v.nodeForTreeIndex(v.selection.currentIndex);
-			editBookmarkPlus._updatePlacesEntry(_node, option);
+			resizeBookmarksEditor._updatePlacesEntry(_node, option);
 		}
 	},
 	
 	updateFromMain: function(e, option) {
 		var _node = document.popupNode._placesNode;
-		editBookmarkPlus._updatePlacesEntry(_node, option);
+		resizeBookmarksEditor._updatePlacesEntry(_node, option);
 	},
 	
 	_updateTitleCore: function (placesNode) {
@@ -393,7 +393,7 @@ var editBookmarkPlus = {
 		try {
 			PlacesUtils.bookmarks.setItemTitle(placesNode.itemId, newValue);
 		}
-		catch (ex) { alert('EditBookmarkPlus: ' + ex.message); }
+		catch (ex) { alert('ResizeBookmarksEditor: ' + ex.message); }
 	},
 	
 	_updateUrlCore: function (placesNode) {
@@ -411,7 +411,7 @@ var editBookmarkPlus = {
 
 			PlacesUtils.bookmarks.changeBookmarkURI(placesNode.itemId, newURI);
 		}
-		catch (ex) { alert('EditBookmarkPlus: ' + ex.message); }
+		catch (ex) { alert('ResizeBookmarksEditor: ' + ex.message); }
 	},
 		
 	handleContextMenuShowing: function(evt) {
@@ -448,11 +448,11 @@ var editBookmarkPlus = {
 			},
 			menuTitle: {
 				id: 'ebmp-placesContext-updatetitle-menuitem',
-				command: 'editBookmarkPlus.updateFromMain(event, \'title\');'
+				command: 'resizeBookmarksEditor.updateFromMain(event, \'title\');'
 			},
 			menuUrl: {
 				id: 'ebmp-placesContext-updateurl-menuitem',
-				command: 'editBookmarkPlus.updateFromMain(event, \'url\');'
+				command: 'resizeBookmarksEditor.updateFromMain(event, \'url\');'
 			},			
 		};
 		
@@ -465,7 +465,7 @@ var editBookmarkPlus = {
 			context.menuUrl.prefkey   = 'updateUrlOnMenu';
 		}
 		
-		return editBookmarkPlus.handleContextMenuShowingCore(evt, context);
+		return resizeBookmarksEditor.handleContextMenuShowingCore(evt, context);
 	},
 
 	handleContextMenuShowingCore: function(evt, context) {
@@ -584,6 +584,6 @@ var editBookmarkPlus = {
 window.addEventListener
 (
   'load', 
-  editBookmarkPlus.handleWindowLoad, 
+  resizeBookmarksEditor.handleWindowLoad,
   false
 );

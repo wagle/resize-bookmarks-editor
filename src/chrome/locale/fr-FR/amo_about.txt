@@ -9,7 +9,7 @@
 
 <li><b>Option pour afficher/masquer des champs supplémentaires</b> : Vous pouvez personnaliser l'affichage pour que soient accessibles ou non les champs pour la description, l'emplacement et les mots-clés.
 
-<li><b>Mettre à jour facilement l'adresse et/ou le titre d'un marque-page</b> : l'extension ajoute des entrées de menu 'Mettre à jour l'URL' et 'Mettre à jour le titre' dans le menu contextuel de la barre des marque-pages, et dans la barre latérale des marque-pages. les deux entrées de menu peuvent être désactivées dans les options de Edit Bookmark Plus.
+<li><b>Mettre à jour facilement l'adresse et/ou le titre d'un marque-page</b> : l'extension ajoute des entrées de menu 'Mettre à jour l'URL' et 'Mettre à jour le titre' dans le menu contextuel de la barre des marque-pages, et dans la barre latérale des marque-pages. les deux entrées de menu peuvent être désactivées dans les options de Resize Bookmarks Editor.
 
 <b>Mettre à jour l'Url</b> : met à jour l'URL du marque-page sélectionné avec l'URL de la page courante.
 

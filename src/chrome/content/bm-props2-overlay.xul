@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <!--
-<!DOCTYPE overlay SYSTEM "chrome://edit-bookmark-plus/locale/editbookmarkplus.dtd">
+<!DOCTYPE overlay SYSTEM "chrome://resize-bookmarks-editor/locale/resizebookmarkseditor.dtd">
 -->
-<overlay id="edit-bookmark-plus"
+<overlay id="resize-bookmarks-editor"
     xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 
-    <script type="application/x-javascript" src="chrome://edit-bookmark-plus/content/editbookmarkplus.js" />
+    <script type="application/x-javascript" src="chrome://resize-bookmarks-editor/content/resizebookmarkseditor.js" />
 	
 </overlay>

@@ -1,10 +1,10 @@
-<!ENTITY editbookmarkplus.options.windowtitle "Edit Bookmark Plus - Einstellungen">
-<!ENTITY editbookmarkplus.options.noautohidepanellabel "Nur 'Abbrechen', 'Fertig' und 'Lesezeichen entfernen' schließen das Pop-up">
-<!ENTITY editbookmarkplus.options.showlocationlabel "Feld 'Adresse' in Pop-up anzeigen">
-<!ENTITY editbookmarkplus.options.showdescriptionlabel "Feld 'Beschreibung' in Pop-up anzeigen">
-<!ENTITY editbookmarkplus.options.showkeywordlabel "Feld 'Schlüsselwort' in Pop-up anzeigen">
-<!ENTITY editbookmarkplus.options.updateurllabel "'Adresse ersetzen' anzeigen">
-<!ENTITY editbookmarkplus.options.updatenamelabel "'Namen ersetzen' anzeigen">
-<!ENTITY editbookmarkplus.options.toolbarlabel "Symbolleiste">
-<!ENTITY editbookmarkplus.options.bookmarksmenulabel "Lesezeichenmenü">
-<!ENTITY editbookmarkplus.options.sidebarlabel "Sidebar">
+<!ENTITY resizebookmarkseditor.options.windowtitle "Resize Bookmarks Editor - Einstellungen">
+<!ENTITY resizebookmarkseditor.options.noautohidepanellabel "Nur 'Abbrechen', 'Fertig' und 'Lesezeichen entfernen' schließen das Pop-up">
+<!ENTITY resizebookmarkseditor.options.showlocationlabel "Feld 'Adresse' in Pop-up anzeigen">
+<!ENTITY resizebookmarkseditor.options.showdescriptionlabel "Feld 'Beschreibung' in Pop-up anzeigen">
+<!ENTITY resizebookmarkseditor.options.showkeywordlabel "Feld 'Schlüsselwort' in Pop-up anzeigen">
+<!ENTITY resizebookmarkseditor.options.updateurllabel "'Adresse ersetzen' anzeigen">
+<!ENTITY resizebookmarkseditor.options.updatenamelabel "'Namen ersetzen' anzeigen">
+<!ENTITY resizebookmarkseditor.options.toolbarlabel "Symbolleiste">
+<!ENTITY resizebookmarkseditor.options.bookmarksmenulabel "Lesezeichenmenü">
+<!ENTITY resizebookmarkseditor.options.sidebarlabel "Sidebar">

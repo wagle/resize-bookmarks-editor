@@ -53,7 +53,7 @@ Tiếng Việt · vi
 
 <li><b>Einstellung zum Anzeigen/Ausblenden von Formularfeldern</b>: Sie können festlegen, ob die Felder für Beschreibung, Adresse und Schlagwort im Pop-up angezeigt werden sollen.
 
-<li><b>Einfaches Ersetzen von Name und/oder Adresse eines Lesezeichens</b>: Fügt 'Adresse ersetzen'- und 'Namen ersetzen'-Menüeinträge zum Kontextmenü von Lesezeichen-Symbolleiste, -Menü und -Sidebar hinzu. Beide Menüeinträge können in den Einstellungen von Edit Bookmark Plus deaktiviert werden.
+<li><b>Einfaches Ersetzen von Name und/oder Adresse eines Lesezeichens</b>: Fügt 'Adresse ersetzen'- und 'Namen ersetzen'-Menüeinträge zum Kontextmenü von Lesezeichen-Symbolleiste, -Menü und -Sidebar hinzu. Beide Menüeinträge können in den Einstellungen von Resize Bookmarks Editor deaktiviert werden.
 
 <b>Adresse ersetzen</b>: Ersetzt die Adresse des gewählten Lesezeichens mit jener der derzeit geöffneten Seite.
 

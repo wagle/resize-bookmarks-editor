@@ -1,9 +1,9 @@
 {
-  "name": "edit-bookmark-plus",
-  "title": "Edit Bookmark Plus",
-  "description": "Allows to re-size the default 'Add/Edit Bookmark Popup' and fixes tree selection bug.",
-  "version": "2.3.2",
-  "homepage": "https://addons.mozilla.org/firefox/addon/edit-bookmark-plus/",
+  "name": "resize-bookmarks-editor",
+  "title": "Resize Bookmarks Editor",
+  "description": "Allows to re-size the default 'Add/Edit Bookmark Popup'.",
+  "version": "3.0.0",
+  "homepage": "https://github.com/wagle/resize-bookmarks-editor",
   "author": {
     "name": "Kashif Iqbal Khan",
     "email": "kashiif@gmail.com",
@@ -11,10 +11,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/kashiif/edit-bookmark-plus.git"
+    "url": "https://github.com/wagle/resize-bookmarks-editor.git"
   },
   "bugs": {
-    "url": "https://github.com/kashiif/edit-bookmark-plus/issues"
+    "url": "https://github.com/wagle/resize-bookmarks-editor.git/issues"
   },
   "licenses": [
     {

@@ -11,10 +11,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/wagle/resize-bookmarks-editor.git"
+    "url": "https://github.com/wagle/resize-bookmarks-editor"
   },
   "bugs": {
-    "url": "https://github.com/wagle/resize-bookmarks-editor.git/issues"
+    "url": "https://github.com/wagle/resize-bookmarks-editor/issues"
   },
   "licenses": [
     {

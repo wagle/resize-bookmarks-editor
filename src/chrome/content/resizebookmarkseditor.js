@@ -51,7 +51,7 @@ var resizeBookmarksEditor = {
 						if (resizeBookmarksEditor.prefService.getBoolPref('showKeyword'))
 							fieldsToShow.push('keyword');
 
-						for each(var field in fieldsToShow) {
+						for (var field in fieldsToShow) {
 							var index = hiddenRows.indexOf(field);
 							if (index !== -1) {
 							    hiddenRows.splice(index, 1);
@@ -108,7 +108,7 @@ var resizeBookmarksEditor = {
 	_welcome: function(version) {
 	/*
 			try {
-			var url = 'http://www.kashiif.com/firefox-extensions/resize-bookmarks-editor/resize-bookmarks-editor-welcome/?v='+version;
+			var url = 'http://wagle.io/firefox-extensions/resize-bookmarks-editor/resize-bookmarks-editor-welcome/?v='+version;
 			openUILinkIn( url, 'tab');
 		} 
 		catch(e) {}

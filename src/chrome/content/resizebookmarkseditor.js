@@ -199,12 +199,11 @@ var resizeBookmarksEditor = {
 		var folderTreeRow = document.getElementById('editBMPanel_folderTreeRow'),
 				btnExpandFolder, txtBookmarkName,
 				prefService = resizeBookmarksEditor.prefService,
-				prefAutoExpandTree = prefService.getBoolPref('autoExpandTree');	
 
 		folderTreeRow.flex=10;
 		folderTreeRow.align='';
 
-		if (prefAutoExpandTree) {
+		if (prefService.getBoolPref('autoExpandTree')) {
 			btnExpandFolder = document.getElementById('editBMPanel_foldersExpander');
 			if (btnExpandFolder.className == 'expander-down') {
 				btnExpandFolder.click();
@@ -217,7 +216,7 @@ var resizeBookmarksEditor = {
 				}
 			}
 		}
-                if (prefService.getBoolPref('autoExpandTags')) {
+		if (prefService.getBoolPref('autoExpandTags')) {
 			var btnExpandFolder = document.getElementById('editBMPanel_tagsSelectorExpander');
 			if (btnExpandFolder.className == 'expander-down') {
 				btnExpandFolder.click();
@@ -265,11 +264,11 @@ var resizeBookmarksEditor = {
 	},
 
 	handleExpandFolderButtonClick: function(evt) {
-                var tagsSelectorRow = document.getElementById('editBMPanel_tagsSelectorRow');
-                tagsSelectorRow.flex=20;
-                tagsSelectorRow.height='';
+		var tagsSelectorRow = document.getElementById('editBMPanel_tagsSelectorRow');
+		tagsSelectorRow.flex = 20;
+		tagsSelectorRow.height = '';
 
-                var folderTreeRow = document.getElementById('editBMPanel_folderTreeRow');
+		var folderTreeRow = document.getElementById('editBMPanel_folderTreeRow');
 		var p =  document.getElementById('editBookmarkPanel');
 
 		if (folderTreeRow.collapsed) {
@@ -294,7 +293,7 @@ var resizeBookmarksEditor = {
 			}
 		}
 
-                var tagsSelectorRow = document.getElementById('editBMPanel_tagsSelectorRow');
+		var tagsSelectorRow = document.getElementById('editBMPanel_tagsSelectorRow');
 		var p =  document.getElementById('editBookmarkPanel');
 
 		if (tagsSelectorRow.collapsed) {

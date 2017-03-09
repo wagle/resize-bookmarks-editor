@@ -46,7 +46,9 @@ var resizeBookmarksEditor = {
 
         // the xul hbox with the resizer element
         var resizerHbox = document.getElementById('hboxResizeBookmarksEditor');
+        alert('Hello, world 1!');
         if (resizerHbox) {
+            alert('Hello, world 2!');
             // Skip for bm-props2.xul
             var editBookmarkPanelBottomButtons = resizerHbox.parentNode;
             editBookmarkPanelBottomButtons.removeChild(resizerHbox);

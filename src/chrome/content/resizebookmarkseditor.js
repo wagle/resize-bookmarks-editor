@@ -64,7 +64,6 @@ var resizeBookmarksEditor = {
 
 			p.addEventListener('load', this.handlePopupLoad, false);
 			p.addEventListener('popupshown', this.handlePopupShown, false);
-			p.addEventListener('popupshowing', resizeBookmarksEditor.handlePopupShowing, false);
 			p.addEventListener('popuphidden', this.handlePopupHidden, false);
 			
 			
@@ -107,7 +106,7 @@ var resizeBookmarksEditor = {
 	
 	_welcome: function(version) {
 	/*
-			try {
+		try {
 			var url = 'http://wagle.io/firefox-extensions/resize-bookmarks-editor/resize-bookmarks-editor-welcome/?v='+version;
 			openUILinkIn( url, 'tab');
 		} 
@@ -134,17 +133,16 @@ var resizeBookmarksEditor = {
 		folderMenuList.addEventListener('command', resizeBookmarksEditor.handleTreeSelectionChanged, false);
 
 		// the xul hbox with the resizer element
-		var p = document.getElementById('hboxResizeBookmarksEditor');
-		if (p) {
+		var resizerHbox = document.getElementById('hboxResizeBookmarksEditor');
+		if (resizerHbox) {
 			// Skip for bm-props2.xul
-			var parent = p.parentNode;
-			parent.removeChild(p);
+			var parent = resizerHbox.parentNode;
+			parent.removeChild(resizerHbox);
 			// Sea Monkey: insert the 'Resizer Panel' as the first item in BottomButtonsPanel
-			parent.insertBefore(p, parent.children.item(0));
-			
-			p =  document.getElementById('editBookmarkPanel');
-			p.removeEventListener('load', resizeBookmarksEditor.handlePopupLoad, false);
-			resizeBookmarksEditor.__setNoAutoHide(p);
+			parent.insertBefore(resizerHbox, parent.children.item(0));
+
+            var eBP =  document.getElementById('editBookmarkPanel');
+            eBP.removeEventListener('load', resizeBookmarksEditor.handlePopupLoad, false);
 
 			var resizer = document.getElementById('resizerResizeBookmarksEditor');
 			resizer.addEventListener('command', resizeBookmarksEditor.handleResizerCommand, false);
@@ -152,30 +150,9 @@ var resizeBookmarksEditor = {
 		
 	},
 
-	__setNoAutoHide: function(targetPanel) {
-		var noautohide = resizeBookmarksEditor.prefService.getBoolPref('noAutoHidePanel');
-		if (noautohide) {
-			targetPanel.setAttribute('noautohide', true);
-		}
-		else {
-			targetPanel.removeAttribute('noautohide', noautohide);	
-		}
-	},
-
-	handlePopupShowing: function(evt) {
-		if (evt.target.id != 'editBookmarkPanel') return;
-
-		var panel = evt.target;
-
-		//panel.removeEventListener('popupshowing', resizeBookmarksEditor.handlePopupShowing);
-		resizeBookmarksEditor.__setNoAutoHide(panel);
-	},
-
-	
 	handlePopupShown: function(evt) {
 		// Do not handle drop-down popup events
 		if (evt.target.id != 'editBookmarkPanel') return;
-		//resizeBookmarksEditor.__setNoAutoHide(evt.target);
 
 		window.setTimeout(function() {
 			resizeBookmarksEditor._processShown(evt);

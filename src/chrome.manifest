@@ -7,10 +7,12 @@ locale	resize-bookmarks-editor	zh-CN	chrome/locale/en-US/
 locale	resize-bookmarks-editor	de	    chrome/locale/de/
 locale	resize-bookmarks-editor	fr-FR	chrome/locale/fr-FR/
 
+// seamonkey
 overlay	chrome://navigator/content/navigator.xul            	chrome://resize-bookmarks-editor/content/bookmarkpaneloverlay.xul
 overlay	chrome://communicator/content/bookmarks/bm-props2.xul	chrome://resize-bookmarks-editor/content/bm-props2-overlay.xul
 overlay	chrome://communicator/content/bookmarks/bm-panel.xul	chrome://resize-bookmarks-editor/content/sidebar.xul
 
+// firefox
 overlay chrome://browser/content/browser.xul                	chrome://resize-bookmarks-editor/content/bookmarkpaneloverlay.xul
 overlay chrome://browser/content/places/bookmarkProperties2.xul	chrome://resize-bookmarks-editor/content/bm-props2-overlay.xul
 overlay chrome://browser/content/bookmarks/bookmarksPanel.xul   chrome://resize-bookmarks-editor/content/sidebar.xul

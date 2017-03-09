@@ -119,13 +119,13 @@ var resizeBookmarksEditor = {
 	
 	handlePopupLoad: function(evt) {		
 		var folderTreeRow = document.getElementById('editBMPanel_folderTreeRow');
-		folderTreeRow.flex=10;
-		folderTreeRow.align='';
+		folderTreeRow.flex = 10;
+		folderTreeRow.align = '';
 
-                var tagsSelectorRow = document.getElementById('editBMPanel_tagsSelectorRow');
-                tagsSelectorRow.flex=20;
-                tagsSelectorRow.height='';
-                tagsSelectorRow.align='';
+        var tagsSelectorRow = document.getElementById('editBMPanel_tagsSelectorRow');
+        tagsSelectorRow.flex = 20;
+        tagsSelectorRow.height = '';
+        tagsSelectorRow.align = '';
 
 		var btnExpandFolder = document.getElementById('editBMPanel_foldersExpander');
 		btnExpandFolder.addEventListener('command', resizeBookmarksEditor.handleExpandFolderButtonClick, false);
@@ -133,6 +133,7 @@ var resizeBookmarksEditor = {
 		var folderMenuList = document.getElementById('editBMPanel_folderMenuList');
 		folderMenuList.addEventListener('command', resizeBookmarksEditor.handleTreeSelectionChanged, false);
 
+		// the xul hbox with the resizer element
 		var p = document.getElementById('hboxResizeBookmarksEditor');
 		if (p) {
 			// Skip for bm-props2.xul
@@ -199,9 +200,10 @@ var resizeBookmarksEditor = {
 		var folderTreeRow = document.getElementById('editBMPanel_folderTreeRow'),
 				btnExpandFolder, txtBookmarkName,
 				prefService = resizeBookmarksEditor.prefService,
+                prefAutoExpandTree = prefService.getBoolPref('autoExpandTree');
 
-		folderTreeRow.flex=10;
-		folderTreeRow.align='';
+        folderTreeRow.flex = 10;
+		folderTreeRow.align = '';
 
 		if (prefService.getBoolPref('autoExpandTree')) {
 			btnExpandFolder = document.getElementById('editBMPanel_foldersExpander');

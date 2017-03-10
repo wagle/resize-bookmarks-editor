@@ -1,16 +1,5 @@
 pref('extensions.resizebookmarkseditor.autoExpandTree', true);
 pref('extensions.resizebookmarkseditor.autoExpandTags', true);
-pref('extensions.resizebookmarkseditor.showLocation', true);
-pref('extensions.resizebookmarkseditor.showDescription', true);
-pref('extensions.resizebookmarkseditor.showKeyword', true);
-pref('extensions.resizebookmarkseditor.updateTitleOnToolbar', true);
-pref('extensions.resizebookmarkseditor.updateTitleOnMenu', true);
-pref('extensions.resizebookmarkseditor.updateTitleOnSidebar', true);
-pref('extensions.resizebookmarkseditor.updateUrlOnToolbar', true);
-pref('extensions.resizebookmarkseditor.updateUrlOnMenu', true);
-pref('extensions.resizebookmarkseditor.updateUrlOnSidebar', true);
 pref('extensions.resizebookmarkseditor.popupWidth', -1);
 pref('extensions.resizebookmarkseditor.popupHeight', -1);
 pref('extensions.resizebookmarkseditor.version', '');
-pref('extensions.resizebookmarkseditor.noAutoHidePanel', true);
-pref('extensions.resizebookmarkseditor.popupshowndelay', 200);

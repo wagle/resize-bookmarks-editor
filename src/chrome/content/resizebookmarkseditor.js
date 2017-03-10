@@ -4,6 +4,7 @@ var resizeBookmarksEditor = {
     prefService: null,
 
     handleWindowLoad: function (evt) {
+        console.info("handleWindowLoad evt", evt);
         window.removeEventListener('load', resizeBookmarksEditor.handleWindowLoad, false);
         window.setTimeout(function () {
             resizeBookmarksEditor.init();
@@ -11,6 +12,7 @@ var resizeBookmarksEditor = {
     },
 
     init: function () {
+        console.info("init");
         this.prefService = Components.classes['@mozilla.org/preferences-service;1']
             .getService(Components.interfaces.nsIPrefService)
             .getBranch('extensions.resizebookmarkseditor.');
@@ -18,14 +20,16 @@ var resizeBookmarksEditor = {
 
         var eBP = document.getElementById('editBookmarkPanel');
         if (eBP) {
-            eBP.addEventListener('load',        this.handlePopupLoad,   false);
-            eBP.addEventListener('popuphidden', this.handlePopupHidden, false);
+            eBP.addEventListener('load',         this.handlePopupLoad,   false);
+            eBP.addEventListener('popupshowing', this.handlePopupShowing, false);
+            eBP.addEventListener('popuphidden',  this.handlePopupHidden, false);
         }
 
 
     },
 
     handlePopupLoad: function (evt) {
+        console.info("handleExpandFolderButtonClick evt", evt);
         var folderTreeRow = document.getElementById('editBMPanel_folderTreeRow');
         folderTreeRow.flex = 20;
         folderTreeRow.height = '';
@@ -58,37 +62,57 @@ var resizeBookmarksEditor = {
         var eBPC = document.getElementById('editBookmarkPanelContent');
         eBPC.style.minWidth = '30.75em'; // Corresponds to 492px for base Size=16pt
         eBPC.flex = '1';
+    },
 
-        var folderTree = document.getElementById('editBMPanel_folderTree');
-        folderTree.flex = '1';
-        folderTree.style.minHeight = '9.375em'; // Corresponds to 150px for base Size=16pt
+    handlePopupShowing: function (evt) {
+        console.info("handlePopupShowing evt", evt);
 
-        var tagsSelector = document.getElementById('editBMPanel_tagsSelector');
-        tagsSelector.flex = '1';
-        tagsSelector.style.minHeight = '9.375em'; // Corresponds to 150px for base Size=16pt
+        var folderTreeRow = document.getElementById('editBMPanel_folderTreeRow');
+        console.info("handlePopupShowing folderTreeRow", folderTreeRow);
+        var toggleCollapsedFolderTree = resizeBookmarksEditor.prefService.getBoolPref('toggleCollapsedFolderTree');
+        if (toggleCollapsedFolderTree != folderTreeRow.collapsed) {
+            var btnExpandFolder = document.getElementById('editBMPanel_foldersExpander');
+            console.info("handlePopupShowing editBMPanel_foldersExpander", btnExpandFolder); //.className == 'expander-down') {
+            btnExpandFolder.click();
+        }
+
+        var tagsSelectorRow = document.getElementById('editBMPanel_tagsSelectorRow');
+        console.info("handlePopupShowing tagsSelectorRow", tagsSelectorRow);
+        var toggleCollapsedTagsSelector = resizeBookmarksEditor.prefService.getBoolPref('toggleCollapsedTagsSelector');
+        if (toggleCollapsedTagsSelector != tagsSelectorRow.collapsed) {
+            var btnExpandTags = document.getElementById('editBMPanel_tagsSelectorExpander');
+            console.info("handlePopupShowing editBMPanel_tagsSelectorExpander", btnExpandTags); //.className == 'expander-down') {
+            btnExpandTags.click();
+        }
     },
 
     handlePopupHidden: function (evt) {
-        var eBPC = document.getElementById('editBookmarkPanelContent'),
-            prefService = resizeBookmarksEditor.prefService,
-            prefAutoExpandTags = prefService.getBoolPref('autoExpandTags'),
-            prefAutoExpandTree = prefService.getBoolPref('autoExpandTree');
+        console.info("handlePopupHidden evt", evt);
+        var eBPC = document.getElementById('editBookmarkPanelContent');
 
-        prefService.setIntPref('popupWidth', eBPC.width);
+        var folderTreeRow = document.getElementById('editBMPanel_folderTreeRow');
+        resizeBookmarksEditor.prefService.setBoolPref('toggleCollapsedFolderTree', folderTreeRow.collapsed);
 
-        if (prefAutoExpandTree || prefAutoExpandTags) {
+        var tagsSelectorRow = document.getElementById('editBMPanel_tagsSelectorRow');
+        resizeBookmarksEditor.prefService.setBoolPref('toggleCollapsedTagsSelector', tagsSelectorRow.collapsed);
+
+        resizeBookmarksEditor.prefService.setIntPref('popupWidth', eBPC.width);
+
+        if (! folderTreeRow.collapsed || ! tagsSelectorRow.collapsed) {
             // Only save height if tree was
-            prefService.setIntPref('popupHeight', eBPC.height);
+            resizeBookmarksEditor.prefService.setIntPref('popupHeight', eBPC.height);
         }
     },
 
     handleExpandFolderButtonClick: function (evt) {
+        console.info("handleExpandFolderButtonClick evt", evt);
         var eBP = document.getElementById('editBookmarkPanel');
         var folderTreeRow = document.getElementById('editBMPanel_folderTreeRow');
+        console.info("handleExpandFolderButtonClick folderTreeRow", folderTreeRow);
         if (folderTreeRow.collapsed) {
             if (eBP) {
-                var folderTree = document.getElementById('editBMPanel_folderTree');
-                eBP.height = eBP.height - folderTree.height;
+                // var folderTree = document.getElementById('editBMPanel_folderTree');
+                // eBP.height = eBP.height - folderTree.height;
             }
         }
         else {
@@ -101,12 +125,13 @@ var resizeBookmarksEditor = {
     },
 
     handleExpandTagsButtonClick: function (evt) {
+        console.info("handleExpandTagsButtonClick evt", evt);
         var eBP = document.getElementById('editBookmarkPanel');
         var tagsSelectorRow = document.getElementById('editBMPanel_tagsSelectorRow');
         if (tagsSelectorRow.collapsed) {
             if (eBP) {
-                var tagsSelector = document.getElementById('editBMPanel_tagsSelector');
-                eBP.height = eBP.height - tagsSelector.height;
+                // var tagsSelector = document.getElementById('editBMPanel_tagsSelector');
+                // eBP.height = eBP.height - tagsSelector.height;
             }
         }
         else {

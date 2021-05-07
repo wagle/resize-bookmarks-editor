@@ -1,6 +1,6 @@
 # Resize-Bookmark-Editor
 
-Resize-Bookmark-Editor is an extension for Firefox that is a stripped down version of my version of resize-bookmarks-editor that *only* resizes the bookmark editor window.
+Resize-Bookmark-Editor is an extension for **Waterfox Classic** that is a stripped down version of my version of resize-bookmarks-editor that *only* resizes the bookmark editor window.
 
 Its currently a work in progress!
 

@@ -24,8 +24,6 @@ var resizeBookmarksEditor = {
             eBP.addEventListener('popupshowing', this.handlePopupShowing, false);
             eBP.addEventListener('popuphidden',  this.handlePopupHidden, false);
         }
-
-
     },
 
     handlePopupLoad: function (evt) {
@@ -39,12 +37,6 @@ var resizeBookmarksEditor = {
         tagsSelectorRow.flex = 20;
         tagsSelectorRow.height = '';
         tagsSelectorRow.align = '';
-
-        var btnExpandFolder = document.getElementById('editBMPanel_foldersExpander');
-        btnExpandFolder.addEventListener('command', resizeBookmarksEditor.handleExpandFolderButtonClick, false);
-
-        var btnExpandTags = document.getElementById('editBMPanel_tagsSelectorExpander');
-        btnExpandTags.addEventListener('command', resizeBookmarksEditor.handleExpandTagsButtonClick, false);
 
         var resizerHbox = document.getElementById('hboxResizeBookmarksEditor');
         if (resizerHbox) {
@@ -101,44 +93,6 @@ var resizeBookmarksEditor = {
         if (! folderTreeRow.collapsed || ! tagsSelectorRow.collapsed) {
             // Only save height if tree was
             resizeBookmarksEditor.prefService.setIntPref('popupHeight', eBPC.height);
-        }
-    },
-
-    handleExpandFolderButtonClick: function (evt) {
-        console.info("handleExpandFolderButtonClick evt", evt);
-        var eBP = document.getElementById('editBookmarkPanel');
-        var folderTreeRow = document.getElementById('editBMPanel_folderTreeRow');
-        console.info("handleExpandFolderButtonClick folderTreeRow", folderTreeRow);
-        if (folderTreeRow.collapsed) {
-            if (eBP) {
-                // var folderTree = document.getElementById('editBMPanel_folderTree');
-                // eBP.height = eBP.height - folderTree.height;
-            }
-        }
-        else {
-            if (eBP) {
-                eBP.height = '';
-                eBP.flex = 1;
-            }
-        }
-
-    },
-
-    handleExpandTagsButtonClick: function (evt) {
-        console.info("handleExpandTagsButtonClick evt", evt);
-        var eBP = document.getElementById('editBookmarkPanel');
-        var tagsSelectorRow = document.getElementById('editBMPanel_tagsSelectorRow');
-        if (tagsSelectorRow.collapsed) {
-            if (eBP) {
-                // var tagsSelector = document.getElementById('editBMPanel_tagsSelector');
-                // eBP.height = eBP.height - tagsSelector.height;
-            }
-        }
-        else {
-            if (eBP) {
-                eBP.height = '';
-                eBP.flex = 1;
-            }
         }
     },
 };
